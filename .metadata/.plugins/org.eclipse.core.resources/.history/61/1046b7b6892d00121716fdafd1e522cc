@@ -1,0 +1,87 @@
+package sudokuTemplate;
+
+public class SudokuTemplate {
+
+	int[][] matrix;
+	
+	public SudokuTemplate(){
+		matrix = new int[9][9];
+	}
+	
+	public SudokuTemplate(int[][] matrix){
+		this.matrix = matrix;
+	}
+	
+	public boolean solve(){
+		return solve(0,0);
+	}
+	public int[][] getMatrix(){
+		return matrix;
+	}
+	
+	private boolean solve(int i, int j){
+		if(j == 9){
+			j = 0;
+			i++;
+		}
+		if(i == 9){
+			return true;
+		}else if(matrix[i][j] != 0 && !check(i, j, matrix[i][j] )){
+				return false;
+			} else if(matrix[i][j] != 0){
+				return solve(i, j+1);
+			} else {
+				for(int n = 1; n <= 9; n++){
+					if(check(i, j, n)){
+						matrix[i][j] = n;
+						if(!solve(i, j+1)){
+							matrix[i][j] = 0;		
+						}else {
+							return true;
+						}
+					}
+				}
+			}
+		return false;
+	}
+	
+	
+	private boolean check(int i, int j, int n){
+		return checkRow(i, j, n) && checkColumn(i, j ,n) && checkSquare(i, j, n);
+	}
+	
+	private boolean checkRow(int i, int j, int n){
+		for(int k = 0; k < 9; k++){
+			if(k == j){
+			}else if(matrix[i][k] == n){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private boolean checkColumn(int i,int j,int n){
+		for(int k = 0; k < 9; k++){
+			if(k == i){
+			}else if(matrix[k][j] == n){
+				return false;
+			}
+		}
+		return true;
+	
+	}
+	
+	private boolean checkSquare(int i,int j, int n){
+		int xbox = j/3;
+		int ybox = i/3;
+		for (int k = xbox * 3; k < xbox*3 +3; k++){
+			for(int l = ybox*3; l < ybox*3 + 3; l++){
+				if(k == j && l == i){
+				} else if(matrix[l][k] == n){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+}

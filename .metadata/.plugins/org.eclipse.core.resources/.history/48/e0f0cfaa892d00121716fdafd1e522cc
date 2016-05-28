@@ -1,0 +1,72 @@
+package sudokuMain;
+
+import sudokuTemplate.*;
+
+public class SudokuTest {
+
+	
+	public static void main(String[] args) {
+		SudokuTemplate test = new SudokuTemplate();
+//	System.out.println(test.solve());
+		int[][] a = test.getMatrix();
+//		for(int i = 0; i < 9; i++){
+//			for (int j = 0; j< 9; j++){
+//				System.out.print(a[i][j] +" ");
+//			}
+//			System.out.println();
+//		}
+//		
+//		a = new int[9][9];
+//		a[1][1] = 1;
+//		a[8][1] = 1;
+//		test = new SudokuTemplate(a);
+//		System.out.println(test.solve());
+//		a = test.getMatrix();
+//		for(int i = 0; i < 9; i++){
+//			for (int j = 0; j< 9; j++){
+//				System.out.print(a[i][j] +" ");
+//			}
+//			System.out.println();
+//		}
+		
+		a[0][2] = 6;
+		a[0][3] = 5;
+		a[0][6] = 8;
+		a[1][2] = 9;
+		a[1][5] = 4;
+		a[1][6] = 2;
+		a[2][0] = 8;
+		a[2][1] = 7;
+		a[2][7] = 4;
+		a[2][8] = 9;
+		a[3][4] = 8;
+		a[3][8] = 3;
+		a[4][0] = 4;
+		a[4][3] = 1;
+		a[4][5] = 3;
+		a[4][8] = 2;
+		a[5][0] = 6;
+		a[5][4] = 5;
+		a[6][0] = 3;
+		a[6][1] = 5;
+		a[6][7] = 9;
+		a[6][8] = 8;
+		a[7][2] = 4;
+		a[7][3] = 9;
+		a[7][6] = 1;
+		a[8][2] = 1;
+		a[8][5] = 5;
+		a[8][6] = 3;
+		test = new SudokuTemplate(a);
+		System.out.println(test.solve());
+		a = test.getMatrix();
+		for(int i = 0; i < 9; i++){
+			for (int j = 0; j< 9; j++){
+				System.out.print(a[i][j] +" ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
