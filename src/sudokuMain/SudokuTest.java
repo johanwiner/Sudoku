@@ -20,3 +20,4 @@ public class SudokuTest {
 		UserInterface UI = new UserInterface(template,sr);
 	}
 }
+
