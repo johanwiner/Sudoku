@@ -28,6 +28,3 @@ public abstract class AbstractButton extends JButton implements ActionListener {
 	public abstract void actionPerformed(ActionEvent arg0);
 
 }
-
-
-
